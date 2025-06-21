@@ -1,0 +1,20 @@
+float SumNumbers(string typeOfNumber)
+{
+    float number, result;
+    while (true)
+    {
+        cout << "Please enter " << typeOfNumber << " : ";
+        cin >> number;
+        if (number != -99)
+            result += number;
+        else
+            return result;
+    }
+}
+
+int main()
+{
+    float result = SumNumbers("number to sum with type (-99) to end");
+    cout << result;
+    return 0;
+};

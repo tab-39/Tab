@@ -1,0 +1,40 @@
+enum enOP{Add = '+', Subtract = '-', Multiply = '*', Divide = '/'};
+float ReadNumber(string typeOfNumber)
+{
+    float number;
+    cout << "Please enter " << typeOfNumber << " : ";
+    cin >> number;
+    return number;
+}
+
+enOP ReadOperator()
+{
+    char Operator;
+        cout << "Please enter operator: ", cin >> Operator;
+    return (enOP) Operator;
+}
+
+float Calculate(float number1, enOP Operator, float number2)
+{
+    if (Operator == enOP::Add)
+        return number1 + number2;
+    else if (Operator == enOP::Subtract)
+        return number1 - number2;
+    else if (Operator == enOP::Multiply)
+        return number1 * number2;
+    else if (Operator == enOP::Divide)
+        return number1 / number2;
+    else
+        cout << "Error!";
+        return 0;
+}
+
+int main()
+{
+    
+    float number1 = ReadNumber("number1");
+    enOP Operator = ReadOperator();
+    float number2 = ReadNumber("number2");
+    cout << Calculate(number1, Operator, number2);
+    return 0;
+};

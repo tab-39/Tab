@@ -1,0 +1,38 @@
+enum enPassFail { Pass = 1, Fail = 2, Wrong = 3};
+
+float ReadMark()
+{
+    float Mark;
+    cout << "What is your mark: ", cin >> Mark;
+    return Mark;
+}
+
+enPassFail CheckMark(float mark)
+{
+    if (0 < mark && mark <= 100)
+    {
+        if (mark >= 50)
+            return enPassFail::Pass;
+        else
+            return enPassFail::Fail;
+    }
+    else
+        return enPassFail::Wrong;
+}
+
+void PrintResults(float mark)
+{
+    enPassFail result = CheckMark(mark);
+    if (result == enPassFail::Pass)
+        cout << "You Passed\n";
+    else if (result == enPassFail::Fail)
+        cout<< "You Fail\n";
+    else
+        cout << "Wrong Mark Please Enter Number between 1 and 100\n";
+}
+
+int main()
+{
+    PrintResults(ReadMark());
+    return 0;
+};

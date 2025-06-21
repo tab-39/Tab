@@ -1,0 +1,31 @@
+enum enNumberType {Odd = 1, Even = 2};
+
+void PrintNum(int NUM)
+{
+    if (NUM == 2)
+        cout << "Number is even!";
+    else
+        cout << "Number is Odd!";
+}
+
+enNumberType CheckNumberType(int Num)
+{
+    int Result = Num % 2;
+    if (Result == 0)
+        return enNumberType::Even;
+    else
+        return enNumberType::Odd;
+}
+
+int ReadNum()
+{
+    int User_name;
+    cout << "Enter num: ", cin >> User_name;
+    return User_name;
+}
+
+int main()
+{
+    PrintNum(CheckNumberType(ReadNum()));
+    return 0;
+}

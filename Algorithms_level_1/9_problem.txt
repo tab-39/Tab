@@ -1,0 +1,25 @@
+
+void ReadNumber(int& num1, int& num2, int& num3)
+{
+    cout << "Enter first number: ", cin >> num1;
+    cout << "Enter second number: ", cin >> num2;
+    cout << "Enter third number: ", cin >> num3;
+}
+
+int Sum(int num1, int num2, int num3)
+{
+    return num1 + num2 + num3;
+}
+
+void PrintSum(int sum)
+{
+    cout << "The total sum of numbers is: " << sum << endl;
+}
+
+int main()
+{
+    int num1, num2, num3;
+    ReadNumber(num1, num2, num3);
+    PrintSum(Sum(num1, num2, num3));
+    return 0;
+};

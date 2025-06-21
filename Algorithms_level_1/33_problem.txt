@@ -1,0 +1,55 @@
+bool CheckPositiveNumber(int number)
+{
+    if (number > 0)
+        return true;
+    else
+        return false;
+}
+
+float ReadPositiveNumber(string typeOfNumber)
+{
+    float N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+
+bool ValidateNumberInRange(float number, float from, float to)
+{
+    return (number >=from && number <=to);
+}
+
+char CheckMarkGrade(float Grade)
+{
+    if (ValidateNumberInRange(Grade, 1, 100))
+    {
+        if (ValidateNumberInRange(Grade, 90, 100))
+            return 'A';
+        else if (ValidateNumberInRange(Grade, 80, 89))
+            return 'B';
+        else if (ValidateNumberInRange(Grade, 70, 79))
+            return 'C';
+        else if (ValidateNumberInRange(Grade, 60, 69))
+            return 'D';
+        else if (ValidateNumberInRange(Grade, 50, 59))
+            return 'E';
+        else
+            return 'F';
+    }
+    else
+        return 'W';
+}
+
+void PrintMark(char mark)
+{
+    cout << "your mark is " << mark << endl;
+}
+
+int main()
+{
+    float Grade = ReadPositiveNumber("Grade");
+    PrintMark(CheckMarkGrade(Grade));
+    return 0;
+};

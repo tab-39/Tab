@@ -1,0 +1,17 @@
+void PrintName(string User_name)
+{
+    cout << "Your name is : " << User_name;
+}
+string ReadName()
+{
+    string User_name;
+    cout << "Enter your name: ";
+    getline(cin, User_name);
+    return User_name;
+}
+
+int main()
+{
+    PrintName(ReadName());
+    return 0;
+}

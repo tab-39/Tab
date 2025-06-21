@@ -1,0 +1,9 @@
+
+int main()
+{
+    float LoanAmount, MonthlyPayment;
+    LoanAmount = ReadPositiveNumber("Loan Amount");
+    MonthlyPayment = ReadPositiveNumber("Monthly Payment");
+    cout <<  LoanAmount / MonthlyPayment << " Months"; 
+    return 0;
+};

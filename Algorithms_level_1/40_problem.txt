@@ -1,0 +1,41 @@
+bool CheckPositiveNumber(float number)
+{
+    if (number > 0)
+        return true;
+    else
+        return false;
+}
+float ReadPositiveNumber(string typeOfNumber)
+{
+    float N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+
+float ServiceFeeAndSalesTAX(float Bill)
+{
+    float ServiceFee, SalesTAX, TotalFee, ServiceFeeValue, SalesTAXValue, TotalBill;
+
+    ServiceFeeValue = 0.10;
+    SalesTAXValue = 0.15;
+
+    ServiceFee = Bill * ServiceFeeValue;
+    SalesTAX = (ServiceFee + Bill) * SalesTAXValue;
+    TotalFee = ServiceFee + SalesTAX;
+
+    TotalBill = TotalFee + Bill
+
+    return TotalBill;
+}
+
+
+int main()
+{
+    float Bill = ReadPositiveNumber("BillValue");
+    float TotalBill = ServiceFeeAndSalesTAX(Bill);
+    cout << "Total: " << TotalBill << endl;
+    return 0;
+};

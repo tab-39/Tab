@@ -1,0 +1,25 @@
+void ReadMark(float& num1, float& num2, float& num3)
+{
+    cout << "Enter first Mark: ", cin >> num1;
+    cout << "Enter second Mark: ", cin >> num2;
+    cout << "Enter third Mark: ", cin >> num3;
+}
+
+float Average(float num1, float num2, float num3)
+{
+    return float((num1 + num2 + num3) / 3);
+}
+
+void PrintAverage(float sum)
+{
+    cout << "The total sum of numbers is: " << sum << endl;
+}
+
+int main()
+{
+    float num1, num2, num3;
+    ReadMark(num1, num2, num3);
+    PrintAverage(Average(num1, num2, num3));
+    return 0;
+};
+

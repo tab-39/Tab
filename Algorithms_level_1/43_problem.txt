@@ -1,0 +1,60 @@
+bool CheckPositiveNumber(float number)
+{
+    if (number > 0)
+        return true;
+    else
+        return false;
+}
+float ReadPositiveNumber(string typeOfNumber)
+{
+    float N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+
+enum enTime {Days = 86400, Hours = 3600, Minutes = 60, Seconds = 1};
+
+struct stTime
+{
+    int Days, Hours, Minutes, Seconds;
+};
+
+
+
+stTime SecondsToTime(int TotalSeconds)
+{
+    stTime timePackage;
+    int Remainder = 0;
+    timePackage.Days = floor(TotalSeconds / enTime::Days);
+    Remainder = TotalSeconds % enTime::Days;
+    timePackage.Hours = floor(Remainder / enTime::Hours);
+    Remainder = Remainder % enTime::Hours;
+    timePackage.Minutes = floor(Remainder / enTime::Minutes);
+    Remainder = Remainder % enTime::Minutes;
+    timePackage.Seconds = Remainder;
+
+    return timePackage;
+}
+
+void PrintTime(stTime timePackage)
+{
+    cout << "Days: " << timePackage.Days;
+    cout << "\nHours: " << timePackage.Hours;
+    cout << "\nMinutes: " << timePackage.Minutes;
+    cout << "\nSeconds: " << timePackage.Seconds;
+}
+
+
+int main()
+{
+    int timeSeconds;
+    timeSeconds = ReadPositiveNumber("Seconds");
+    stTime timePackage = SecondsToTime(timeSeconds);
+    PrintTime(timePackage);
+    return 0;
+};
+
+

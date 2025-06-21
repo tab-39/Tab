@@ -1,0 +1,56 @@
+bool CheckPositiveNumber(int number)
+{
+    if (number > 0)
+        return true;
+    else
+        return false;
+}
+
+float ReadPositiveNumber(string typeOfNumber)
+{
+    float N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+
+bool ValidateNumberInRange(float number, float from, float to)
+{
+    return (number >=from && number <=to);
+}
+
+float CommissionPercentage(float sales)
+{
+    if (sales >= 1000000)
+        return 1.01;
+    else if (sales >= 500000)
+        return 1.02;
+    else if (sales >= 100000)
+        return 1.03;
+    else if (sales >= 50000)
+        return 1.05;
+    else
+        return 0;
+}
+
+float CalculateTotalSales(float Sales)
+{
+    float Percentage = CommissionPercentage(Sales);
+    return Sales * Percentage;
+}
+
+
+void PrintTotal(float total)
+{
+    cout << "Total: " << total << endl;
+}
+
+int main()
+{
+    float Sales = ReadPositiveNumber("Sales");
+
+    PrintTotal(CalculateTotalSales(Sales));
+    return 0;
+};

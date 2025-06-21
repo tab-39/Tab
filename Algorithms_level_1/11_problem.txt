@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+enum enPassFail {Pass =1, Fail =2, wrong =3};
+
+void ReadMark(float& num1, float& num2, float& num3)
+{
+    cout << "Enter first Mark: ", cin >> num1;
+    cout << "Enter second Mark: ", cin >> num2;
+    cout << "Enter third Mark: ", cin >> num3;
+}
+float SumOfMarks(float num1, float num2, float num3)
+{
+    return (num1 + num2 + num3);
+}
+
+float Average(float num1, float num2, float num3)
+{
+    return float(SumOfMarks(num1, num2, num3) / 3);
+}
+
+enPassFail CheckAverage (float average)
+{
+    if (average >= 50)
+        return enPassFail::Pass;
+    else if( average <= 49)
+        return enPassFail::Fail;
+    else
+    {
+        return enPassFail::wrong;
+    }
+    
+}
+void PrintMark(float average)
+{
+    
+    if (CheckAverage(average) == enPassFail::Pass)
+        cout << "You Pass" << endl;
+    else if (CheckAverage(average) == enPassFail::Fail)
+        cout << "You Fail" << endl;
+    else
+        cout << "Wrong mark";
+}
+
+int main()
+{
+    float num1, num2, num3;
+    ReadMark(num1, num2, num3);
+    PrintMark(Average(num1, num2, num3));
+    return 0;
+};

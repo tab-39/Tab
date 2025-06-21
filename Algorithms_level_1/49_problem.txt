@@ -1,0 +1,13 @@
+int main()
+{
+    float Balance = 7500;
+    int Password = 1234;
+    int PINInput = ReadPositiveNumber("PIN");
+    if (PINInput == Password)
+{        cout << "Balance: " << Balance;
+        system("color 2f");}
+    else
+{        system("color 4f");
+        cout << "Wrong PIN";}
+    return 0;
+};

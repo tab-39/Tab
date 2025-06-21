@@ -1,0 +1,55 @@
+bool CheckPositiveNumber(float number)
+{
+    if (number > 0)
+        return true;
+    else
+        return false;
+}
+float ReadPositiveNumber(string typeOfNumber)
+{
+    float N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+bool ValidateNumberInRange(float number, float from, float to)
+{
+    return (number >=from && number <=to);
+}
+
+enum enPrimeNotPrime {Prime = 1, notPrime =2};
+
+enPrimeNotPrime CheckPrime(int number)
+{
+    int M = round(number / 2);
+    
+    for (int counter = 2; counter <= M; counter++)
+    {
+        if (number % counter == 0)
+            return enPrimeNotPrime::notPrime;
+    }
+    return enPrimeNotPrime::Prime;
+}
+
+void PrintNumberType(int number)
+{
+    switch (CheckPrime(number))
+    {
+    case enPrimeNotPrime::Prime :
+        cout << "The number is Prime" << endl;
+        break;
+    case enPrimeNotPrime::notPrime :
+        cout << "The number is not Prime" << endl;
+    default:
+        break;
+    }
+}
+
+int main()
+{
+    PrintNumberType(ReadPositiveNumber("Check prime number"));
+    return 0;
+};
+

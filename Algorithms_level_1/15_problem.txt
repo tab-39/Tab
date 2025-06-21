@@ -1,0 +1,25 @@
+void Read2Angle(float& Angel1, float& Angel2)
+{
+    cout << "Enter first Angel: ", cin >> Angel1;
+    cout << "Enter second Angel: ", cin >> Angel2;
+}
+
+
+float CalculateRectangleArea(float Angle1, float Angle2)
+{
+    float Area;
+    Area = Angle1 * Angle2;
+    return Area;
+}
+
+void PrintArea(float Area)
+{
+    cout << "Area of the rectangle is " << Area << endl;
+}
+int main()
+{
+    float num1, num2;
+    Read2Angle(num1, num2);
+    PrintArea(CalculateRectangleArea(num1, num2));
+    return 0;
+};

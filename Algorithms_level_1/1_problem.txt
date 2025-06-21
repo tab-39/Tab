@@ -1,0 +1,11 @@
+void PrintName(string User_name)
+{
+    cout << "Your name is : " << User_name;
+}
+
+
+int main()
+{
+    PrintName("Turki barayan");
+    return 0;
+}

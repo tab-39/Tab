@@ -1,0 +1,43 @@
+bool CheckPositiveNumber(int number)
+{
+    if (number > 0)
+        return true;
+    else
+        return false;
+}
+
+int ReadPositiveNumber(string typeOfNumber)
+{
+    int N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+
+int Power(int number, int power)
+{
+    int result = 1;
+    for (int i = power; i > 0; i--)
+    {
+        result *= number;
+    }
+    
+    return result;
+}
+
+void PrintPowerOfNumber(int powered, int number, int power)
+{
+    cout << "the power of " << number <<"^" << power << " is " << powered << endl; 
+}
+
+
+int main()
+{
+    int number = ReadPositiveNumber("number to power with 2 3 4");
+    PrintPowerOfNumber(Power(number, 2), number, 2);
+    PrintPowerOfNumber(Power(number, 3), number, 3);
+    PrintPowerOfNumber(Power(number, 4), number, 4);
+    return 0;
+};

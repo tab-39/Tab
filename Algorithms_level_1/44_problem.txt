@@ -1,0 +1,49 @@
+bool CheckPositiveNumber(float number)
+{
+    if (number > 0 && number < 8)
+        return true;
+    else
+        return false;
+}
+float ReadPositiveNumber(string typeOfNumber)
+{
+    float N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+
+enum enDayOfWeek {Sun = 1, Mon = 2, Tue = 3, Wed = 4, Thu = 5, Fri = 6, Sat = 7};
+
+
+string DayNameByNumber(int DayNumber)
+{
+    switch (DayNumber)
+    {
+    case enDayOfWeek::Sun:
+        return "Sunday";
+    case enDayOfWeek::Mon:
+        return "Monday";
+    case enDayOfWeek::Tue:
+        return "Tuesday";
+    case enDayOfWeek::Wed:
+        return "Wednesday";
+    case enDayOfWeek::Thu:
+        return "Thursday";
+    case enDayOfWeek::Fri:
+        return "Friday";
+    case enDayOfWeek::Sat:
+        return "Saturday";
+    }
+    return "wrongDayNumber";
+}
+
+int main()
+{ 
+    enDayOfWeek DayNumber = enDayOfWeek(ReadPositiveNumber("Day of week"));
+    cout << DayNameByNumber(DayNumber) << endl;
+    return 0;
+};
+

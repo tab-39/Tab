@@ -1,0 +1,20 @@
+int ReadNNumber()
+{
+    int N;
+    cout << "Please enter number to end with : ";
+    cin >> N;
+    return N;
+}
+
+
+void PrintUntilNNumber(int from, int to)
+{   
+    for (int counter = from; counter <= to; counter++)
+        cout << counter << endl;
+}
+
+int main()
+{
+    PrintUntilNNumber(1, ReadNNumber());
+    return 0;
+};

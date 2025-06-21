@@ -1,0 +1,33 @@
+enum enOddOrEven{Odd = 1, Even = 2};
+
+int ReadNNumber()
+{
+    int N;
+    cout << "Please enter number to end with : ";
+    cin >> N;
+    return N;
+}
+
+enOddOrEven CheckOddOrEven(int number)
+{
+    if (number % 2 == 1)
+        return enOddOrEven::Odd;
+    else
+        return enOddOrEven::Even;
+}
+
+
+void SumOddNumbersFrom1ToN(int from, int to)
+{   
+    int sumOdd = 0;
+    for (int counter = from; counter <= to; counter++)
+        if (CheckOddOrEven(counter) == enOddOrEven::Odd)
+            sumOdd += counter;
+    cout << "Sum of the odd number between " << from  << " to " << to << " is " << sumOdd << endl;
+}
+
+int main()
+{
+    SumOddNumbersFrom1ToN(3, ReadNNumber());
+    return 0;
+};

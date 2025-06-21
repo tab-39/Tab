@@ -1,0 +1,27 @@
+void ReadAngle(float& a, float& b)
+{
+    cout << "Enter a circle: ", cin >> a;
+    cout << "Enter b circle: ", cin >> b;
+    
+}
+
+float CalculateCircleArea(float a, float b)
+{
+    const float PI = 3.14159265359;
+    float Area;
+    Area = PI * (pow(b, 2) / 4) * ((2*a -b) / (2*a +b ));
+    return Area;
+}
+
+void PrintArea(float Area)
+{
+    cout << "Area of the circle is " << Area << endl;
+}
+
+int main()
+{
+    float a, b;
+    ReadAngle(a, b);
+    PrintArea(CalculateCircleArea(a, b));
+    return 0;
+};

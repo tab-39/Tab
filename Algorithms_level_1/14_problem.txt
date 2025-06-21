@@ -1,0 +1,29 @@
+void Read2Num(int& num1, int& num2)
+{
+    cout << "Enter first Number: ", cin >> num1;
+    cout << "Enter second Number: ", cin >> num2;
+}
+
+void Swap(int& A, int& B)
+{
+    int Temp = A;
+    A = B;
+    B = Temp;
+    cout << "The numbers has been swapped" << endl;
+}
+
+void PrintNumbers(int num1, int num2)
+{
+    cout << "First number is " << num1 << endl;
+    cout << "Second number is " << num2 << endl;
+}
+
+int main()
+{
+    int num1, num2;
+    Read2Num(num1, num2);
+    PrintNumbers(num1, num2);
+    Swap(num1, num2);
+    PrintNumbers(num1, num2);
+    return 0;
+};

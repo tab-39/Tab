@@ -1,0 +1,41 @@
+bool CheckPositiveNumber(float number)
+{
+    if (number > 0)
+        return true;
+    else
+        return false;
+}
+float ReadPositiveNumber(string typeOfNumber)
+{
+    float N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+
+float HoursToDays(float Hours)
+{
+    return Hours/24;
+}
+
+float DaysToWeeks(float Days)
+{
+    return Days / 7;
+}
+
+
+int main()
+{
+    float NumberOfHours = ReadPositiveNumber("NumberOfHours");
+    float NumberOfDays = HoursToDays(NumberOfHours);
+    float NumberOfWeeks = DaysToWeeks(NumberOfDays);
+
+    cout << endl;
+    cout << "Total Hours = " << NumberOfHours << endl;
+    cout << "Total Days = " << NumberOfDays << endl;
+    cout << "Total Weeks = " << NumberOfWeeks << endl;
+
+    return 0;
+};

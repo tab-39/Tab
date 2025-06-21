@@ -1,0 +1,25 @@
+float ReadNum()
+{
+    float User_name;
+    cout << "Enter num: ", cin >> User_name;
+    return User_name;
+};
+
+float calculate_half_num(float num)
+{
+    float half_num = num / 2;
+
+    return half_num;
+};
+
+void PrintResults(float num)
+{
+    float half_num = calculate_half_num(num);
+    cout << "the half of the " << num << " is " << half_num << endl;
+};
+
+int main()
+{
+    PrintResults(ReadNum());
+    return 0;
+};

@@ -1,0 +1,64 @@
+bool CheckPositiveNumber(int number)
+{
+    if (number > 0)
+        return true;
+    else
+        return false;
+}
+float ReadPositiveNumber(string typeOfNumber)
+{
+    float N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+bool ValidateNumberInRange(float number, float from, float to)
+{
+    return (number >=from && number <=to);
+}
+
+enum enDollar {Penny = 1, Nickel = 5, Dime = 10, Quarter = 25, Dollar = 100};
+
+struct stPiggyBankContent
+{
+    int Penny, Nickel, Dime, Quarter, Dollar;
+};
+
+stPiggyBankContent ReadDollarType()
+{
+    stPiggyBankContent PiggyBankContent;
+    cout << "Please enter the Pennies: ", cin >> PiggyBankContent.Penny;
+    cout << "Please enter the Nickels: ", cin >> PiggyBankContent.Nickel;
+    cout << "Please enter the Dimes: ", cin >>PiggyBankContent.Dime;
+    cout << "Please enter the Quarters: ", cin >> PiggyBankContent.Quarter;
+    cout << "Please enter the Dollars: ", cin >> PiggyBankContent.Dollar;
+    return PiggyBankContent;
+}
+
+float CalculatePennies(stPiggyBankContent PiggyBankContent)
+{
+    float TotalPennies;
+    PiggyBankContent.Penny *= enDollar::Penny;
+    PiggyBankContent.Nickel *= enDollar::Nickel;
+    PiggyBankContent.Dime *= enDollar::Dime;
+    PiggyBankContent.Quarter *= enDollar::Quarter;
+    PiggyBankContent.Dollar *= enDollar::Dollar;
+    TotalPennies = PiggyBankContent.Penny + PiggyBankContent.Nickel + PiggyBankContent.Dime + PiggyBankContent.Quarter + PiggyBankContent.Dollar;
+    return TotalPennies;
+}
+
+void PrintPennies(float TotalPennies)
+{
+    cout << "Total Pennies: " << TotalPennies << endl;
+    cout << "Dollars: " << (TotalPennies/100)<< endl;
+
+}
+
+int main()
+{
+
+    PrintPennies(CalculatePennies(ReadDollarType()));
+    return 0;
+};

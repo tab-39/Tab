@@ -1,0 +1,49 @@
+bool ValidateNumberInRange(float number, float from, float to)
+{
+    return (number >=from && number <=to);
+}
+bool CheckPositiveNumber(float number)
+{
+    if (ValidateNumberInRange(number, 999, 9999))
+        return true;
+    else
+        return false;
+}
+float ReadPositive4Number(string typeOfNumber)
+{
+    float N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+
+bool ReadPin3Times(int PIN)
+{
+    int counter = 2;
+    int PINInput;
+    do
+    {
+    PINInput = ReadPositive4Number("PIN");
+    if (PINInput == PIN)
+        return true;
+    else
+        counter--;
+    }while (counter > -1);
+    return false;
+}
+
+int main()
+{
+    int PIN = 1234;
+    float balance = 73432;
+    if (ReadPin3Times(PIN))
+    {
+        system("color 2F");
+        cout << "Your balance: " << balance << endl;
+    }
+    else
+        cout << "Your card blocked call the bank for help.";
+    return 0;
+};

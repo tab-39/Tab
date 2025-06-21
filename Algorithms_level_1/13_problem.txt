@@ -1,0 +1,32 @@
+void Read3Num(float& num1, float& num2, float& num3)
+{
+    cout << "Enter first Number: ", cin >> num1;
+    cout << "Enter second Number: ", cin >> num2;
+    cout << "Enter third Number: ", cin >> num3;
+}
+
+float Max(float num1, float num2, float num3)
+{
+    if (num1 > num2)
+        if (num1 > num3)
+            return num1;
+        else
+            return num3;
+    else if (num2 > num3)
+        return num2;
+    else
+        return num3;
+}
+
+void PrintMax(float MaxNumber)
+{
+    cout << "The max number is: " << MaxNumber << endl;
+}
+
+int main()
+{
+    float num1, num2, num3;
+    Read3Num(num1, num2, num3);
+    PrintMax(Max(num1, num2, num3));
+    return 0;
+};

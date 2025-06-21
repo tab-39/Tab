@@ -1,0 +1,49 @@
+bool CheckPositiveNumber(float number)
+{
+    if (number > 0)
+        return true;
+    else
+        return false;
+}
+float ReadPositiveNumber(string typeOfNumber)
+{
+    float N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+bool ValidateNumberInRange(float number, float from, float to)
+{
+    return (number >=from && number <=to);
+}
+enum enOP{Add = '+', Subtract = '-', Multiply = '*', Divide = '/'};
+float Calculate(float number1, enOP Operator, float number2)
+{
+    if (Operator == enOP::Add)
+        return number1 + number2;
+    else if (Operator == enOP::Subtract)
+        return number1 - number2;
+    else if (Operator == enOP::Multiply)
+        return number1 * number2;
+    else if (Operator == enOP::Divide)
+        return number1 / number2;
+    else
+        cout << "Error!";
+        return 0;
+}
+
+int main()
+{
+    float Bill = ReadPositiveNumber("TotalBill");
+    float Paid = ReadPositiveNumber("CaskPaid");
+    float result = Calculate(Paid, enOP::Subtract, Bill);
+    if (result > 0)
+        cout << "I will gave you: " << result << endl;
+    else if (result < 0)
+        cout << "you will gave me: " << (result * -1) << endl;
+    else
+        cout << "thank you, have a good day!" << endl;
+    return 0;
+};

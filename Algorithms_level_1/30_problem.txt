@@ -1,0 +1,31 @@
+bool CheckPositiveNumber(int number)
+{
+    if (number > 0)
+        return true;
+    else
+        return false;
+}
+
+int ReadPositiveNumber(string typeOfNumber)
+{
+    int N;
+    do
+    {
+        cout << "Please enter "<< typeOfNumber <<" : ", cin >> N;
+    }while (!CheckPositiveNumber(N));
+    return N;
+}
+
+void fac(int factorialNumber)
+{   
+    int Factorial = 1;
+    for (int counter = factorialNumber; counter != 0; counter--)
+            Factorial *= counter;
+    cout << "Factorial of " << factorialNumber  << " is " << Factorial << endl;
+}
+
+int main()
+{
+    fac(ReadPositiveNumber("Factorial"));
+    return 0;
+};
